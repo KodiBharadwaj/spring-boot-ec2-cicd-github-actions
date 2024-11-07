@@ -2,7 +2,7 @@
 
 This guide walks you through setting up a Continuous Integration and Continuous Deployment (CI/CD) pipeline for a Spring Boot application using GitHub Actions and deploying it on an AWS EC2 instance.
 
-## Author - Ramanuj Das
+## Author - Kodi Bharadwaj
 
 ## Steps
 
@@ -13,7 +13,7 @@ This guide walks you through setting up a Continuous Integration and Continuous 
 
 ### 2. Connect to the Instance
 
-Connect to your EC2 instance via SSH.
+Connect to your EC2 instance via its cli.
 
 ### 3. Install Required Software
 
@@ -191,17 +191,29 @@ newgrp docker
 ### 3. Pull the PostgreSQL Image
 
 ```bash
-docker pull postgres
+sudo docker pull postgres
 ```
 
 ### 4. Run the PostgreSQL Container
 
 ```bash
-docker run --name postgres -e POSTGRES_PASSWORD=password -d -p 5432:5432 postgres
+sudo docker run --name postgres -e POSTGRES_PASSWORD=password -d -p 5432:5432 postgres
 ```
 
 ### 5. Update the Spring Boot Application Properties
 
+### 6. If you stop instance and started next onwards, then start the postgres
+
+```bash
+sudo docker start postgres
+```
+
+### 6. If swagger shows CORS error or some network error then
+
+```bash
+sudo ufw allow 8080
+Then include your ip along with 8080 like this: 172.31.42.67:8080
+```
 
 ### Congratulations! You have successfully deployed your Java Spring Boot application on an AWS EC2 instance with CI/CD integration using GitHub Actions.
 

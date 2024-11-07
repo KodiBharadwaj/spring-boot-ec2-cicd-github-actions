@@ -61,7 +61,7 @@ SyslogIdentifier=springbootapp
 WantedBy=multi-user.target
 
 ```
-
+Then press ctrl+o and then ENTER and then ctrl+x in aws cli
 
 ## Setting Up CI/CD with GitHub Actions
 
